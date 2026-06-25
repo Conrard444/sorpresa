@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonas &amp; Sarah — Jubileum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#241f2b;
+  --pop:#ff5b6e;
+  --teal:#1fb6a6;
+  --gold:#f2b94a;
+  --cream:#fbf6ee;
+  --paper:#fff;
+  --shadow:rgba(50,35,60,.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:2rem;position:relative;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,91,110,.18), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(31,182,166,.18), transparent 45%),
+    var(--cream);
+}
+.hero .eyebrow{
+  letter-spacing:.45em;text-transform:uppercase;font-size:.7rem;
+  color:var(--teal);margin-bottom:1.2rem;padding-left:.45em;font-weight:500;
+}
+.hero h1{
+  font-family:'Fraunces';font-weight:600;font-size:clamp(2.8rem,11vw,7rem);
+  line-height:.95;letter-spacing:-.01em;
+}
+.hero h1 .amp{font-style:italic;font-weight:500;color:var(--pop);display:inline-block;transform:rotate(-8deg)}
+.hero .sub{
+  margin-top:1.8rem;font-family:'Fraunces';font-style:italic;font-size:clamp(1.1rem,3vw,1.6rem);
+  color:var(--ink);opacity:.85;max-width:30ch;
+}
+.hero .date{
+  margin-top:1.6rem;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--paper);background:var(--ink);padding:.5rem 1.1rem;border-radius:99px;
+}
+.scroll-hint{
+  position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);
+  font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pop);
+  animation:bob 2.4s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ---------- INTRO ---------- */
+.intro{max-width:600px;margin:0 auto;padding:7rem 2rem 2rem;text-align:center}
+.intro p{font-family:'Fraunces';font-size:1.45rem;font-style:italic;opacity:.85}
+
+/* ---------- GALLERY ---------- */
+.gallery{max-width:1000px;margin:0 auto;padding:3rem 1.5rem 5rem}
+.frame{margin:0 auto 6.5rem;max-width:720px}
+.frame figure{
+  position:relative;background:var(--paper);padding:.9rem .9rem 0;
+  box-shadow:0 28px 55px -22px var(--shadow);border-radius:4px;
+}
+.frame img{width:100%;display:block;border-radius:2px;aspect-ratio:auto}
+.frame figcaption{
+  font-family:'Fraunces';font-style:italic;font-size:1.2rem;
+  text-align:center;padding:1rem;opacity:.8;
+}
+.style-label{
+  display:inline-block;font-family:'Space Grotesk';font-size:.58rem;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--teal);
+  margin-bottom:.7rem;font-style:normal;
+}
+.tag{
+  position:absolute;top:-.7rem;left:-.7rem;background:var(--pop);color:#fff;
+  font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  padding:.35rem .7rem;border-radius:99px;transform:rotate(-6deg);font-weight:500;
+}
+.frame:nth-child(even) .tag{background:var(--teal);left:auto;right:-.7rem;transform:rotate(6deg)}
+
+/* filters */
+.fx-sepia img{filter:sepia(.7) contrast(1.05) brightness(1.02)}
+.fx-bw img{filter:grayscale(1) contrast(1.12)}
+.fx-vintage img{filter:sepia(.4) saturate(1.35) contrast(.95) hue-rotate(-12deg) brightness(1.06)}
+.fx-paint img{filter:saturate(1.7) contrast(1.18) brightness(1.04)}
+.fx-duotone img{filter:grayscale(1) contrast(1.1)}
+.fx-duotone figure::after{
+  content:"";position:absolute;inset:.9rem .9rem 0;
+  background:linear-gradient(135deg,var(--pop),var(--teal));
+  mix-blend-mode:screen;opacity:.6;pointer-events:none;border-radius:2px;
+}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(45px);transition:opacity 1s ease,transform 1s ease}
+.reveal.in{opacity:1;transform:none}
+.frame:nth-child(even).reveal{transform:translateY(45px) rotate(1.5deg)}
+.frame:nth-child(even).reveal.in{transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}.scroll-hint{animation:none}
+}
+
+/* footer */
+.outro{text-align:center;padding:5rem 2rem 7rem}
+.outro h2{font-family:'Fraunces';font-weight:600;font-size:clamp(1.8rem,5vw,3rem)}
+.outro h2 em{font-style:italic;color:var(--pop)}
+.outro .small{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-top:1.3rem;opacity:.5}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Sinds 26 juni 2021</div>
+  <h1>Jonas <span class="amp">&amp;</span> Sarah</h1>
+  <div class="sub">Officieel al jaren aan elkaar vastgeklikt. En nog steeds niemand die wegloopt.</div>
+  <div class="date">Jubileum · 26/06</div>
+  <div class="scroll-hint">Scroll voor het bewijs</div>
+</header>
+
+<section class="intro reveal">
+  <p>Een paar momenten waarop we allebei toevallig naar de camera keken.</p>
+</section>
+
+<main class="gallery">
+
+  <div class="frame reveal fx-sepia">
+    <figure>
+      <span class="tag">Helmen verplicht</span>
+      <img src="fotos/foto-1.jpg" alt="Jonas en Sarah op de fiets bij een meer">
+      <figcaption><span class="style-label">Sepia</span><br>Twee koppen, twee helmen, één goede haardag (die van niemand).</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-bw">
+    <figure>
+      <span class="tag">Volume: max</span>
+      <img src="fotos/foto-2.jpg" alt="Jonas en Sarah lachend op een bergtop">
+      <figcaption><span class="style-label">Zwart-wit</span><br>Iemand vond dit duidelijk het grappigste moment ooit.</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-vintage">
+    <figure>
+      <span class="tag">Kus &amp; gil</span>
+      <img src="fotos/foto-3.jpg" alt="Jonas lacht, Sarah geeft een kus op de bergtop">
+      <figcaption><span class="style-label">Vintage</span><br>De ene poseert romantisch, de andere zingt blijkbaar opera.</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-paint">
+    <figure>
+      <span class="tag">Te dichtbij</span>
+      <img src="fotos/foto-4.jpg" alt="Close-up selfie van Jonas en Sarah in het bos">
+      <figcaption><span class="style-label">Schilderij</span><br>Toen we nog niet wisten hoe een selfie precies werkt.</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-duotone">
+    <figure>
+      <span class="tag">Cafeïne &gt; alles</span>
+      <img src="fotos/foto-5.jpg" alt="Sarah met een koffie in een hotellobby">
+      <figcaption><span class="style-label">Duotone</span><br>De echte liefde van haar leven, vastgehouden met beide handen.</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-vintage">
+    <figure>
+      <span class="tag">Filmscène</span>
+      <img src="fotos/foto-6.jpg" alt="Jonas tilt Sarah op in een wijngaard met uitzicht">
+      <figcaption><span class="style-label">Vintage</span><br>Even doen alsof we in een reclame voor wijn zitten. Knepen het er goed uit.</figcaption>
+    </figure>
+  </div>
+
+  <div class="frame reveal fx-paint">
+    <figure>
+      <span class="tag">Verliefde blik</span>
+      <img src="fotos/foto-7.jpg" alt="Jonas en Sarah kijken elkaar aan in de bergen">
+      <figcaption><span class="style-label">Schilderij</span><br>Dat moment waarop je elkaar diep aankijkt en allebei "honger?" denkt.</figcaption>
+    </figure>
+  </div>
+
+</main>
+
+<footer class="outro reveal">
+  <h2>Op naar de <em>volgende ronde</em> selfies.</h2>
+  <div class="small">Gemaakt met (te) veel plezier</div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
